@@ -2,6 +2,7 @@ import {Box, Button, Slider, Stack, Typography, List, ListItem} from '@mui/mater
 import TopButton from './components/Button/TopButton';
 import axios from 'axios';
 import React, { createContext, useState } from 'react'
+import Webcam from "react-webcam";
 
 
 function App() {
@@ -126,19 +127,22 @@ function App() {
 //   ));
 
   return (
-    <Stack direction={'column'} spacing={4}>
-      <Stack direction={'row'}>
-      <Box sx={{
-          width: 100,
+    <Stack direction={'column'} spacing={4} sx={{padding: 20,}}>
+      <Stack direction={'row'} spacing={25}>
+      <Box
+        component="img"
+        sx={{
           height: 100,
-          borderRadius: 1,
-          bgcolor: 'primary.main',
-          '&:hover': {
-            bgcolor: 'primary.dark',
-          },
+          width: 100,
+          maxHeight: { xs: 233, md: 167 },
+          maxWidth: { xs: 350, md: 250 },
         }}
-        ></Box>
-        <Typography>Mood Slider</Typography>
+        alt=""
+        src={"./src/assets/Sky_Group_logo_2020.svg"}
+      />
+      <Box alignContent={'center'}>
+      <Typography variant='h3' alignItems={'center'}>Mood Slider</Typography>
+      </Box>
       </Stack>
       <Stack direction={'row'} spacing={4}>
         <TopButton text="Use Webcam" styling="contained" onPressed={() => {
@@ -168,19 +172,19 @@ function App() {
             setCalmScore(val);
           }}></Slider>
         </Stack>
-        <Stack direction={'row'}>
+        <Stack direction={'row'} spacing={4}>
           <Typography>Cheerful</Typography>
           <Slider value={cheerfulScore} min={1} max={10} step={1} onChange={(e, val) => {
             setCheerfulScore(val);
           }}></Slider>
         </Stack>
-        <Stack direction={'row'}>
+        <Stack direction={'row'} spacing={4}>
           <Typography>Awake</Typography>
           <Slider value={awakeScore} min={1} max={10} step={1} onChange={(e, val) => {
             setAwakeScore(val);
           }}></Slider>
         </Stack>
-        <Stack direction={'row'}>
+        <Stack direction={'row'} spacing={4}>
           <Typography>Fearless</Typography>
           <Slider value={fearlessScore}  min={1} max={10} step={1} onChange={(e, val) => {
             setFearlessScore(val);
