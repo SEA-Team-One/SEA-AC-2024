@@ -1,5 +1,4 @@
 import {Box, Button, Slider, Stack, Typography, List, ListItem} from '@mui/material'
-import {Box, Button, Slider, Stack, Typography} from '@mui/material'
 import TopButton from './components/Button/TopButton';
 import axios from 'axios';
 import React, { createContext, useState } from 'react'
@@ -99,7 +98,7 @@ function App() {
     // }
   ]
 
-  const movieList = list_of_movies.map((item, index) => (
+  const movieListHandler = list_of_movies.map((item, index) => (
     <ListItem key={index}>
       <Box
         component="img"
@@ -186,7 +185,7 @@ function App() {
       <Stack direction={'row'} spacing={4}>
         <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }} >
           <Stack direction={'row'} spacing={4}>
-            {movieList}
+            {movieListHandler}
           </Stack>
         </List>
       </Stack>
